@@ -3,7 +3,7 @@ import { Wifi } from "lucide-react";
 
 function Footer() {
   return (
-    <footer className="w-full bg-blue-400 text-white">
+    <footer className="w-full bg-amber-50 text-lack">
       {/* Content Wrapper */}
       <div className="py-12">
         <div className="px-4 sm:px-6 lg:px-12">
@@ -12,10 +12,10 @@ function Footer() {
             {/* Brand */}
             <div>
               <div className="flex items-center mb-4">
-                <Wifi className="h-8 w-8 text-white" />
+                <Wifi className="h-8 w-8 text-black" />
                 <span className="ml-2 text-xl font-bold">SunTech Home</span>
               </div>
-              <p className="text-blue-100">
+              <p className="text-blue-500">
                 A new day with faster connectivity because every sunrise deserves speed that keeps you moving.
               </p>
             </div>
@@ -45,7 +45,7 @@ function Footer() {
             {/* Contact */}
             <div>
               <h4 className="font-semibold mb-4">Contact</h4>
-              <ul className="space-y-2 text-blue-100">
+              <ul className="space-y-2 text-blue-500">
                 <li>Athi River, Machakos</li>
                 <li>suntechpowerke@gmail.com</li>
                 <li>+254 114 386 777</li>
@@ -54,7 +54,7 @@ function Footer() {
           </div>
 
           {/* Bottom Bar */}
-          <div className="border-t border-blue-300 mt-10 pt-6 text-center text-blue-100">
+          <div className="border-t border-blue-300 mt-10 pt-6 text-center text-blue-500">
             <p>&copy; 2025 SunTech Home Technologies. All rights reserved.</p>
           </div>
 

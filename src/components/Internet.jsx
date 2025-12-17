@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Internet() {
   return (
-    <div className="w-full">
+    <div className="w-full bg-amber-40">
 
       {/* Hero Section */}
       <section className="py-20 bg-gray-30 text-center">
@@ -156,7 +156,7 @@ export default function Internet() {
       </section>
 
       {/* Subscription Form */}
-      <section className="py-20 bg-white">
+      <section className="py-20 amber-50  ">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-8 text-blue-500">
             SunTech Subscription Form

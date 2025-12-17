@@ -16,7 +16,7 @@ import {
 
 export default function Services() {
   return (
-    <div className="w-full text-gray-800">
+    <div className="w-full text-gray-800 bg-amber40">
       {/* HERO SECTION */}
       <section className="bg-gradient-to-br text-blue-500 py-24 px-6 text-center">
         <h1 className="text-4xl lg:text-6xl font-bold mb-6">

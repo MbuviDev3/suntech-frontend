@@ -1,3 +1,5 @@
+
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -47,11 +49,14 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  background-color: #0000cc;
+  box-shadow: 0 12px 28px rgba(0, 0, 255, 0.45);
+  transform: translateY(-2px);
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 3px solid rgba(0, 0, 255, 0.5);
+  outline-offset: 3px;
 }
 
 @media (prefers-color-scheme: light) {
@@ -62,7 +67,29 @@ button:focus-visible {
   a:hover {
     color: #747bff;
   }
-  button {
-    background-color: #f9f9f9;
-  }
+button {
+  background-color: #0000ff;
+  color: #ffffff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+
+  /* Shadow & animation */
+  box-shadow: 0 8px 20px rgba(0, 0, 255, 0.35);
+  transition: 
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.2s ease;
+}
+
+button:active {
+  background-color: #000099;
+  box-shadow: 0 4px 10px rgba(0, 0, 255, 0.4);
+  transform: translateY(1px);
+}
+
+
 }

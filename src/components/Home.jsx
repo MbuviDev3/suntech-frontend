@@ -1,11 +1,18 @@
 import React from 'react';
 import { Wifi, Zap, Shield, Headphones, TrendingUp, Check, Star } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
+import products from "./data/products";
+
 
 
 // Home Component Only
 export default function Home() {
+
+const navigate = useNavigate();
+const featuredProducts = products.slice(0, 3); // show only 3
+
   return (
-    <div className=" bg-gray-30">
+    <div className=" bg-amber-40">
       {/* Hero Section */}
       <div className="pt-16 bg-gradient-to-br  text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
@@ -20,14 +27,23 @@ export default function Home() {
               A new day with faster connectivity — because every sunrise deserves speed that keeps you moving.
             </p>
 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-  <button className="!border-2 !border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold">
+  <button
+    onClick={() => navigate("/internet")}
+    className="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold
+               hover:bg-blue-600 hover:text-white transition-all duration-300"
+  >
     Get Connected
   </button>
 
-  <button className="!border-2 !border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold">
+  <button
+    onClick={() => navigate("/products")}
+    className="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold
+               hover:bg-blue-600 hover:text-white transition-all duration-300"
+  >
     Explore Solar
   </button>
 </div>
+
 
           </div>
         </div>
@@ -78,7 +94,7 @@ export default function Home() {
       
 
    {/* Why Choose Section */}
-<div className="py-16 lg:py-24 bg-gray-30">
+<div className="py-8 lg:py-10 bg-gray-30">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <div className="text-center mb-12">
@@ -90,6 +106,84 @@ export default function Home() {
       </p>
       
     </div>
+    {/* Featured Products */}
+<div className="py-8 lg:py-10 bg-amber-40">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    
+
+    <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+      {featuredProducts.map(product => (
+        <div
+          key={product.id}
+          onClick={() => navigate(`/products/${product.id}`)}
+          className="group cursor-pointer bg-white rounded-2xl overflow-hidden
+                     shadow-md hover:shadow-2xl transition-all duration-300
+                     hover:-translate-y-2"
+        >
+          {/* Image */}
+          <div className="relative">
+            <img
+              src={product.images[0]}
+              alt={product.name}
+              className="w-full h-56 object-cover
+                         group-hover:scale-105 transition-transform duration-300"
+            />
+
+            {/* Stock Badge */}
+            <span className="absolute top-4 left-4 bg-green-600 text-white
+                             text-xs font-semibold px-3 py-1 rounded-full shadow">
+              In Stock
+            </span>
+          </div>
+
+          {/* Content */}
+          <div className="p-6">
+            <h3 className="text-xl font-semibold mb-2 text-gray-900">
+              {product.name}
+            </h3>
+
+            {/* Rating */}
+            <div className="flex items-center mb-3">
+              {[...Array(5)].map((_, i) => (
+                <Star
+                  key={i}
+                  className="h-5 w-5 text-yellow-400 fill-current"
+                />
+              ))}
+            </div>
+
+            {/* Price */}
+            <div className="flex items-center gap-3">
+              {product.oldPrice && (
+                <span className="text-sm text-gray-400 line-through">
+                  KES {product.oldPrice.toLocaleString()}
+                </span>
+              )}
+              <span className="text-lg font-bold text-blue-600">
+                KES {product.price.toLocaleString()}
+              </span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {/* View All Button */}
+    <div className="text-center mt-12">
+      <button
+        onClick={() => navigate("/products")}
+        className="border-2 border-blue-600 text-blue-600
+                   px-10 py-3 rounded-lg font-semibold
+                   hover:bg-blue-600 hover:text-white transition"
+      >
+        View All Solar Products
+      </button>
+    </div>
+
+  </div>
+</div>
+
 
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
@@ -174,7 +268,11 @@ export default function Home() {
               <p className="text-gray-700 mb-6 italic">
                 Get clean, reliable solar energy at a discounted price. Save on solar power, borehole pumps, and water heaters — limited-time offer!
               </p>
-              <button className="!border-2 !border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold">
+  <button
+    onClick={() => navigate("/products")}
+    className="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold
+               hover:bg-blue-600 hover:text-white transition-all duration-300"
+  >
     Shop Now
   </button>
               

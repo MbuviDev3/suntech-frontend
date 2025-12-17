@@ -28,9 +28,9 @@ function Navbar() {
               <ShoppingCart className="h-5 w-5" />
               <span className="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
             </Link>
-            <Link to="/login" className="bg-blue-400 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition">
+            {/* <Link to="/login" className="bg-blue-400 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition">
               Log In
-            </Link>
+            </Link> */}
           </div>
 
           {/* Mobile Menu Button */}
@@ -38,7 +38,7 @@ function Navbar() {
             className="md:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            <svg className="h-6 w-6 bg-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="h-6 w-6 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
@@ -55,9 +55,9 @@ function Navbar() {
             <Link to="/services" className="block py-2 text-gray-700 hover:text-blue-600">Services</Link>
             <Link to="/contact" className="block py-2 text-gray-700 hover:text-blue-600">Contact Us</Link>
             <Link to="/cart" className="block py-2 text-gray-700 hover:text-blue-600">Cart (0)</Link>
-            <Link to="/login" className="block w-full bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 mt-2 text-center">
+            {/* <Link to="/login" className="block w-full bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 mt-2 text-center">
               Log In
-            </Link>
+            </Link> */}
           </div>
         </div>
       )}

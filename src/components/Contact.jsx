@@ -3,7 +3,7 @@ import { Phone, Mail, MapPin, MessageCircle, Clock } from "lucide-react";
 
 export default function Contact() {
   return (
-    <div className="w-full text-gray-30">
+    <div className="w-full text-gray-30 bg-amber-40">
       {/* HERO / HEADER */}
       <section className="bg-gradient-to-br  text-blue-500 py-20 px-6 text-center">
         <h1 className="text-4xl lg:text-5xl font-bold mb-4 text-blue-500">Get in Touch</h1>

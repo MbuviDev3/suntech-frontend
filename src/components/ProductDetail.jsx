@@ -15,37 +15,43 @@ export default function ProductDetail() {
 
   if (!product) return <div className="text-center py-20">Product not found</div>;
 
-  // Image navigation
-  const nextImage = () => setCurrentImage(prev => (prev === product.images.length - 1 ? 0 : prev + 1));
-  const prevImage = () => setCurrentImage(prev => (prev === 0 ? product.images.length - 1 : prev - 1));
+  const nextImage = () => setCurrentImage((prev) => (prev === product.images.length - 1 ? 0 : prev + 1));
+  const prevImage = () => setCurrentImage((prev) => (prev === 0 ? product.images.length - 1 : prev - 1));
 
-  // Buy handler
+  // Auto-format phone to Paystack format
+  const handlePhoneChange = (e) => {
+    let val = e.target.value.replace(/\D/g, "");
+    if (val.startsWith("0")) val = "254" + val.slice(1);
+    setPhone(val);
+  };
+
   const handleBuyNow = async () => {
-    if (!email || !phone) return alert("Please enter your email and phone number");
-
-    let formattedPhone = phone.replace(/\D/g, "");
-    if (formattedPhone.startsWith("0")) formattedPhone = "254" + formattedPhone.slice(1);
-
-    if (!/^2547\d{8}$/.test(formattedPhone)) return alert("Phone must be in format 2547XXXXXXXX");
+    if (!email || !phone) return alert("Please enter email and phone number");
+    if (!/^2547\d{8}$/.test(phone)) return alert("Phone must be in format 2547XXXXXXXX");
 
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/api/payments/mpesa", {
+      const res = await fetch("https://suntechhometechnologies.co.ke/api/payments/mpesa", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          phone: formattedPhone,
+          phone,
           email,
           amount: product.price * quantity,
+          
         }),
       });
 
       const data = await res.json();
-      alert(res.ok ? data.message : "Payment failed: " + JSON.stringify(data.error));
+      if (res.ok) {
+        alert(data.message);
+      } else {
+        alert("Payment failed: " + JSON.stringify(data.error || data));
+      }
     } catch (err) {
       console.error(err);
-      alert("Payment failed");
+      alert("Payment failed: " + err.message);
     } finally {
       setLoading(false);
     }
@@ -53,98 +59,32 @@ export default function ProductDetail() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-12">
-      <Link to="/products" className="text-blue-600 hover:underline mb-6 inline-block">
-        &larr; Back to Store
-      </Link>
-
+      <Link to="/products" className="text-blue-600 hover:underline mb-6 inline-block">&larr; Back to Store</Link>
       <div className="flex flex-col md:flex-row gap-8">
         {/* IMAGE CAROUSEL */}
         <div className="flex-1 bg-white rounded-2xl shadow-lg p-4">
           <div className="overflow-hidden rounded-xl">
-            <img
-              src={product.images[currentImage]}
-              alt={product.name}
-              className="w-full h-[250px] sm:h-[350px] md:h-[400px] object-contain transition-transform duration-300"
-            />
+            <img src={product.images[currentImage]} alt={product.name} className="w-full h-[350px] object-contain" />
           </div>
-
-          {/* Bottom controls */}
-          <div className="flex justify-between mt-4 px-2 sm:px-6">
-            <button
-              onClick={prevImage}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
-            >
-              <ChevronLeft size={20} /> Previous
-            </button>
-
-            <button
-              onClick={nextImage}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
-            >
-              Next <ChevronRight size={20} />
-            </button>
-          </div>
-
-          {/* Dots indicator */}
-          <div className="flex justify-center gap-2 mt-3">
-            {product.images.map((_, idx) => (
-              <span
-                key={idx}
-                className={`h-2 w-2 rounded-full ${idx === currentImage ? "bg-blue-600" : "bg-gray-300"}`}
-              />
-            ))}
+          <div className="flex justify-between mt-4">
+            <button onClick={prevImage} className="px-4 py-2 bg-blue-600 text-white rounded">Prev</button>
+            <button onClick={nextImage} className="px-4 py-2 bg-blue-600 text-white rounded">Next</button>
           </div>
         </div>
 
         {/* PRODUCT DETAILS */}
         <div className="flex-1">
-          <h1 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">{product.name}</h1>
+          <h1 className="text-2xl font-bold mb-3">{product.name}</h1>
           <p className="text-gray-600 mb-4">{product.description}</p>
-
-          {/* Price */}
-          <div className="flex items-center gap-3 mb-6">
-            {product.oldPrice && (
-              <span className="text-gray-400 line-through">
-                KES {product.oldPrice.toLocaleString()}
-              </span>
-            )}
-            <span className="text-2xl font-bold text-blue-600">
-              KES {product.price.toLocaleString()}
-            </span>
+          <div className="mb-6">
+            <span className="text-2xl font-bold text-blue-600">KES {product.price.toLocaleString()}</span>
           </div>
 
-          {/* Form Inputs */}
-          <div className="flex flex-col gap-3 mb-6">
-            <input
-              type="email"
-              placeholder="Email address"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-400"
-            />
+          <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full p-3 mb-3 border rounded" />
+          <input type="tel" placeholder="0712345678" value={phone} onChange={handlePhoneChange} className="w-full p-3 mb-3 border rounded" />
+          <input type="number" min={1} value={quantity} onChange={(e) => setQuantity(Number(e.target.value))} className="w-32 p-3 mb-3 border rounded" />
 
-            <input
-              type="tel"
-              placeholder="0712345678"
-              value={phone}
-              onChange={e => setPhone(e.target.value)}
-              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-400"
-            />
-
-            <input
-              type="number"
-              min={1}
-              value={quantity}
-              onChange={e => setQuantity(Number(e.target.value))}
-              className="w-32 p-3 border rounded-lg focus:ring-2 focus:ring-blue-400"
-            />
-          </div>
-
-          <button
-            onClick={handleBuyNow}
-            disabled={loading}
-            className="w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition font-semibold"
-          >
+          <button onClick={handleBuyNow} disabled={loading} className="w-full py-3 bg-blue-600 text-white rounded">
             {loading ? "Processing..." : "Buy Now"}
           </button>
         </div>

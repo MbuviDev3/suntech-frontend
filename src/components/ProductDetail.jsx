@@ -8,53 +8,15 @@ export default function ProductDetail() {
   const product = products.find((p) => p.id === parseInt(id));
 
   const [currentImage, setCurrentImage] = useState(0);
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [quantity, setQuantity] = useState(1);
-  const [loading, setLoading] = useState(false);
 
   if (!product) return <div className="text-center py-20">Product not found</div>;
 
   const nextImage = () => setCurrentImage((prev) => (prev === product.images.length - 1 ? 0 : prev + 1));
   const prevImage = () => setCurrentImage((prev) => (prev === 0 ? product.images.length - 1 : prev - 1));
 
-  // Auto-format phone to Paystack format
-  const handlePhoneChange = (e) => {
-    let val = e.target.value.replace(/\D/g, "");
-    if (val.startsWith("0")) val = "254" + val.slice(1);
-    setPhone(val);
-  };
-
-  const handleBuyNow = async () => {
-    if (!email || !phone) return alert("Please enter email and phone number");
-    if (!/^2547\d{8}$/.test(phone)) return alert("Phone must be in format 2547XXXXXXXX");
-
-    setLoading(true);
-
-    try {
-      const res = await fetch("https://suntechhometechnologies.co.ke/api/payments/mpesa", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          phone,
-          email,
-          amount: product.price * quantity,
-          
-        }),
-      });
-
-      const data = await res.json();
-      if (res.ok) {
-        alert(data.message);
-      } else {
-        alert("Payment failed: " + JSON.stringify(data.error || data));
-      }
-    } catch (err) {
-      console.error(err);
-      alert("Payment failed: " + err.message);
-    } finally {
-      setLoading(false);
-    }
+  const handleBuyNow = () => {
+    // Redirect user to the Paystack checkout link
+    window.location.href = product.paystackLink;
   };
 
   return (
@@ -80,12 +42,8 @@ export default function ProductDetail() {
             <span className="text-2xl font-bold text-blue-600">KES {product.price.toLocaleString()}</span>
           </div>
 
-          <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full p-3 mb-3 border rounded" />
-          <input type="tel" placeholder="0712345678" value={phone} onChange={handlePhoneChange} className="w-full p-3 mb-3 border rounded" />
-          <input type="number" min={1} value={quantity} onChange={(e) => setQuantity(Number(e.target.value))} className="w-32 p-3 mb-3 border rounded" />
-
-          <button onClick={handleBuyNow} disabled={loading} className="w-full py-3 bg-blue-600 text-white rounded">
-            {loading ? "Processing..." : "Buy Now"}
+          <button onClick={handleBuyNow} className="w-full py-3 bg-blue-600 text-white rounded">
+            Buy Now
           </button>
         </div>
       </div>

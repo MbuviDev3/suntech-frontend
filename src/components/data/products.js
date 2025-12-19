@@ -5,7 +5,8 @@ const products = [
     price: 305000,
     oldPrice: 310000,
     description: "5KVA Solar System suitable for homes and small businesses. Reliable and durable.",
-    images: ["/images/5KVA Solar System.jpeg", "/images/5KVA Solar System 2.jpeg"]
+    images: ["/images/5KVA Solar System.jpeg", "/images/5KVA Solar System 2.jpeg"],
+    paystackLink: "https://paystack.com/buy/5kva-solar-system-qnvxqs"
   },
   {
     id: 2,
@@ -13,7 +14,8 @@ const products = [
     price: 60000,
     oldPrice: 62500,
     description: "600W inverter with 220AH battery, efficient energy storage and backup.",
-    images: ["/images/600W Solar System 2.jpeg", "/images/600W Solar System.jpeg"]
+    images: ["/images/600W Solar System 2.jpeg", "/images/600W Solar System.jpeg"],
+    paystackLink: "https://paystack.com/buy/10kw-lithium-battery-sjyztf",
   },
   {
     id: 3,
@@ -29,7 +31,8 @@ const products = [
     price: 270000,
     oldPrice: null,
     description: "5KW Solar System suitable for normal home usage. HO Green, save more.",
-    images: ["/images/5KW Solar System.jpeg", "/images/5KW Solar System 2.jpeg"]
+    images: ["/images/5KW Solar System.jpeg", "/images/5KW Solar System 2.jpeg"],
+    paystackLink: " https://paystack.com/buy/6kva-solar-system-sskmrs"
   },
   {
     id: 5,
@@ -37,7 +40,8 @@ const products = [
     price: 11999,
     oldPrice: null,
     description: "High quality, high efficiency, long-lasting solar panels.",
-    images: ["/images/580W Solar Panels.jpeg", "/images/580W Solar Panels 2.jpeg"]
+    images: ["/images/580W Solar Panels.jpeg", "/images/580W Solar Panels 2.jpeg"],
+    paystackLink: " https://paystack.com/buy/580w-solar-panels-svxvdu"
   },
     {
     id: 6,
@@ -45,7 +49,8 @@ const products = [
     price: 180000,
     oldPrice: 190000,
     description: "3KVA Hybrid Inverter, 15KW Lithium Battery, 12x580W Solar Panels, ideal for large homes or farms.",
-    images: ["/images/3Kva solar system.jpeg", "/images/3kva solar system 2.jpeg"]
+    images: ["/images/3Kva solar system.jpeg", "/images/3kva solar system 2.jpeg"],
+    paystackLink: " https://paystack.com/buy/3kva-solar-system-snjnrw"
   },
       {
     id: 7,
@@ -53,7 +58,8 @@ const products = [
     price: 500,
     oldPrice: 500,
     description: "24KW Solar System suitable for normal home usage. HO Green, save more.",
-    images: ["/images/24KW Solar System.jpeg", "/images/24KW Solar System 2.jpeg"]
+    images: ["/images/24KW Solar System.jpeg", "/images/24KW Solar System 2.jpeg"],
+    paystackLink: "https://paystack.com/buy/24kw-solar-system-xawclc"
   },
 ];
 

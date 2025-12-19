@@ -17,14 +17,12 @@ const featuredProducts = products.slice(0, 3); // show only 3
       <div className="pt-16 bg-gradient-to-br  text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
           <div className="text-center">
-            <p className="text-black text-sm sm:text-base font-semibold tracking-wide uppercase mb-4">
-              Premium Internet and Solar solutions
-            </p>
+         
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-blue-600">
-              Unlimited, High-speed internet
+              Experience the Freedom of Solar Power
             </h1>
             <p className="text-lg sm:text-xl text-black mb-8 max-w-3xl mx-auto">
-              A new day with faster connectivity — because every sunrise deserves speed that keeps you moving.
+             We offer faster and relaible solar power solutions under 24 hours .
             </p>
 <div className="flex flex-col sm:flex-row gap-4 justify-center">
   <button

@@ -23,7 +23,8 @@ const products = [
     price: 479000,
     oldPrice: 480000,
     description: "6KVA Hybrid Inverter, 15KW Lithium Battery, 12x580W Solar Panels, ideal for large homes or farms.",
-    images: ["/images/6KVA Solar System.jpeg", "/images/6KVA Solar System 2.jpeg"]
+    images: ["/images/6KVA Solar System.jpeg", "/images/6KVA Solar System 2.jpeg"],
+    paystackLink: "https://paystack.com/buy/6kva-solar-system-koycrf"
   },
   {
     id: 4,
@@ -32,7 +33,7 @@ const products = [
     oldPrice: null,
     description: "5KW Solar System suitable for normal home usage. HO Green, save more.",
     images: ["/images/5KW Solar System.jpeg", "/images/5KW Solar System 2.jpeg"],
-    paystackLink: " https://paystack.com/buy/6kva-solar-system-sskmrs"
+    paystackLink: " https://paystack.com/buy/5kw-solar-system-ijsnci"
   },
   {
     id: 5,

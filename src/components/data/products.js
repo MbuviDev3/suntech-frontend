@@ -2,8 +2,8 @@ const products = [
   {
     id: 1,
     name: "5KVA Solar System",
-    price: 305000,
-    oldPrice: 310000,
+    price: 250000,
+    oldPrice: 260000,
     description: "5KVA Solar System suitable for homes and small businesses. Reliable and durable.",
     images: ["/images/5KVA Solar System.jpeg", "/images/5KVA Solar System 2.jpeg"],
     paystackLink: "https://paystack.com/buy/5kva-solar-system-qnvxqs"
@@ -20,8 +20,8 @@ const products = [
   {
     id: 3,
     name: "6KVA Solar System with 15KW Lithium Battery",
-    price: 479000,
-    oldPrice: 480000,
+    price: 300000,
+    oldPrice: 305000,
     description: "6KVA Hybrid Inverter, 15KW Lithium Battery, 12x580W Solar Panels, ideal for large homes or farms.",
     images: ["/images/6KVA Solar System.jpeg", "/images/6KVA Solar System 2.jpeg"],
     paystackLink: "https://paystack.com/buy/6kva-solar-system-koycrf"

@@ -37,7 +37,9 @@ function Footer() {
               <ul className="space-y-2 text-gray-700">
                 <li><Link to="/services" className="hover:text-blue-600">About Us</Link></li>
                 <li><Link to="/contact" className="hover:text-blue-600">Contact</Link></li>
-                
+                <li><Link to="/passwordreset" className="hover:text-blue-600">Password Reset</Link></li>
+                <li><Link to="/terms" className="hover:text-blue-600">Terms</Link></li>
+
               </ul>
             </div>
 
@@ -54,7 +56,7 @@ function Footer() {
 
           {/* Bottom Bar */}
           <div className="border-t border-blue-300 mt-10 pt-6 text-center text-blue-500">
-            <p>&copy; 2025 SunTech Home Technologies. All rights reserved.</p>
+            <p>&copy; 2026 SunTech Home Technologies. All rights reserved.</p>
           </div>
 
         </div>

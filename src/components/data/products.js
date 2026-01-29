@@ -56,7 +56,7 @@ const products = [
       {
     id: 7,
     name: "24KW Solar System",
-    price: 500,
+    price: 1000000,
     oldPrice: null,
     description: "24KW Solar System suitable for normal home usage. HO Green, save more.",
     images: ["/images/24KW Solar System.jpeg", "/images/24KW Solar System 2.jpeg"],

@@ -42,9 +42,15 @@ export default function ProductDetail() {
             <span className="text-2xl font-bold text-blue-600">KES {product.price.toLocaleString()}</span>
           </div>
 
-          <button onClick={handleBuyNow} className="w-full py-3 bg-blue-600 text-white rounded">
-            Buy Now
-          </button>
+                      <a
+              href="https://suntechhometechnologies.co.ke/payment"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition">
+                Pay Now
+              </button>
+            </a>
         </div>
       </div>
     </div>

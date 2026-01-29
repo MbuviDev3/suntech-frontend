@@ -165,9 +165,22 @@ Comments: ${comments}`;
             </p>
 
             <button type="submit" className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold">
-              Submit
+              Submit Details
             </button>
+
+
+
           </form>
+          <br></br>
+                      <a
+              href="https://suntechhometechnologies.co.ke/payment"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition">
+                Pay Now
+              </button>
+            </a>
         </div>
       </section>
     </div>

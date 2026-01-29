@@ -44,7 +44,7 @@ export default function ProductDetail() {
 
                       <a
               href="https://suntechhometechnologies.co.ke/payment"
-              target="_blank"
+              target="_self"
               rel="noopener noreferrer"
             >
               <button className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition">

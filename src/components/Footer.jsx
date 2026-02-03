@@ -12,7 +12,7 @@ function Footer() {
             {/* Brand */}
             <div>
               <div className="flex items-center mb-4">
-                <Wifi className="h-8 w-8 text-black" />
+              
                 <span className="ml-2 text-xl font-bold">SunTech Home</span>
               </div>
               <p className="text-blue-500">

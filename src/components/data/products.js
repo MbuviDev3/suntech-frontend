@@ -50,7 +50,7 @@ const products = [
     price: 15000,
     oldPrice: null,
     description: "This solar-powered AI camera offers seamless indoor/outdoor surveillance with live viewing and recorded history. It features smart motion detection alerts, two-way audio for real-time communication, and supports multi-user access for shared monitoring. The camera’s energy-efficient solar design ensures continuous operation, while its advanced AI enhances security by reducing false alarms. Ideal for homes or businesses, it provides reliable, wire-free protection.",
-    images: ["public/images/Solar ai.jpg"],
+    images: ["/images/Solar ai.jpg"],
 
   },
     {
